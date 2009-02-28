@@ -3,7 +3,7 @@ class ActiveRecord::Base
     
     # This simple implementation was extracted from
     # ActiveRecord::Base .find, find_every and construct_finder_sql
-    def union(parts, options)
+    def union(parts, options = {})
       if parts.size >= 2
         scope = scope(:find)
         
