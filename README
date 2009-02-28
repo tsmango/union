@@ -1,0 +1,17 @@
+Plugin Details
+--------------
+This is an extremely naive 'railsification' of a SQL union.
+
+The first parameter, parts, is an array of hashes. Each hash is what you would normally send into a single find and represents each SELECT that will eventually be unioned together.
+
+The second paramter, options, is a hash of remaining options to be applied to the UNION of the parts (ie: order, limit, offset).
+
+A simple (and useless) example would be:
+User.union([{:conditions => ['name = ?', 'tom']}, {:conditions => ['name = ?', 'gary']}], {:order => 'created_at'})
+
+Essentially you can do any union, but it's up to you to make sure you don't pass the wrong stuff in because it's a pretty dumb implementation.
+
+Author
+------
+Thomas Mango
+http://slicedsoftware.com
