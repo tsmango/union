@@ -9,6 +9,9 @@ The second paramter, options, is a hash of remaining options to be applied to th
 A simple (and useless) example would be:
 User.union([{:conditions => ['name = ?', 'tom']}, {:conditions => ['name = ?', 'gary']}], {:order => 'created_at'})
 
+This example produces the following SQL:
+(SELECT * FROM `users` WHERE (name = 'tom')) UNION (SELECT * FROM `users` WHERE (namae = 'gary')) ORDER BY created_at;
+
 Essentially you can do any union, but it's up to you to make sure you don't pass the wrong stuff in because it's a pretty dumb implementation.
 
 Author
